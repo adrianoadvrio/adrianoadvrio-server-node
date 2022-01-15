@@ -1,9 +1,18 @@
 const http = require('http');
 
 const requestListener = function (req, res) {
-  console.log(req.url) // about
-  res.writeHead(200);
-  res.end('Hello, World!'); // root
+  if(req.url == "/"){
+    res.end('<h1>Esta es la pagina principal</h1>');
+    return;
+  }  
+  if(req.url == "/nosotros"){
+    res.end('<h1>Esta es la pagina sobre nosotros</h1>');
+    return;
+       }
+
+ res.end('<h1>no hay nada</h1>');
+ return;
+   
 }
 
 const server = http.createServer(requestListener);
